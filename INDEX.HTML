@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pedido Especial 🌻</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #e6ccff, #f7e9ff);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    #container {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: #ffffffcc;
+      border-radius: 25px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #9c4dcc;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #b266ff;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #9a33ff;
+    }
+
+    #final {
+      display: none;
+      margin-top: 40px;
+      font-size: 24px;
+      color: #7a1fa2;
+      font-weight: bold;
+    }
+
+    #resposta {
+      margin-top: 30px;
+    }
+
+    .girassol {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-image: url('https://i.imgur.com/FJvLZ4F.png');
+      background-size: cover;
+      animation: flutuar 10s infinite;
+      z-index: 1;
+      opacity: 0.7;
+    }
+
+    @keyframes flutuar {
+      0% { transform: translateY(-100px) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Girassóis animados -->
+  <div class="girassol" style="left: 10%; animation-delay: 0s;"></div>
+  <div class="girassol" style="left: 40%; animation-delay: 3s;"></div>
+  <div class="girassol" style="left: 70%; animation-delay: 6s;"></div>
+  <div class="girassol" style="left: 85%; animation-delay: 1s;"></div>
+
+  <div id="container">
+    <h1>Para você, minha princesa Nicolly 🌻</h1>
+    <p>
+      Desde que a gente voltou a se falar, tudo tem sido diferente...
+      Você chegou de mansinho, com teu jeitinho leve, puro, e foi ocupando espaço dentro de mim.
+      Hoje, cada conversa tua é como um alívio no meu dia, e cada plano contigo me mostra o quanto eu quero algo verdadeiro ao teu lado.<br><br>
+      Nicolly, você me traz paz. Me traz vontade de construir, de cuidar, de viver um amor diferente. Eu não planejei tudo isso, mas hoje tenho certeza: quero viver isso com você.
+      Meu objetivo é simples: te amar com verdade, respeitar teu tempo, e ser o cara que você merece ao lado.
+      E agora, com o coração batendo forte, quero te perguntar algo especial...
+    </p>
+
+    <button onclick="mostrarPedido()">CLIQUE AQUI 🌸</button>
+
+    <div id="final">
+      <p>OIIIIIIIIIIIIIIIIIIIII MINHA PRINCESA 💜<br><br>
+      VOCÊ ACEITA FIRMAR ESSE COMPROMISSO<br>
+      E NAMORAR COM SEU AGROBOY??? 🌾🚜💘</p>
+      <div id="resposta">
+        <button onclick="responderSim()">SIM</button>
+        <button id="naoBtn" onmouseover="fugirNao()">NÃO</button>
+      </div>
+      <p id="respostaFinal" style="margin-top:20px;"></p>
+    </div>
+  </div>
+
+  <script>
+    function mostrarPedido() {
+      document.getElementById('final').style.display = 'block';
+    }
+
+    let tentativasNao = 0;
+
+    function fugirNao() {
+      const btn = document.getElementById('naoBtn');
+      if (tentativasNao < 3) {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 100);
+        btn.style.position = 'absolute';
+        btn.style.left = x + 'px';
+        btn.style.top = y + 'px';
+        tentativasNao++;
+      } else {
+        document.getElementById('respostaFinal').innerText = 'Você só tem uma escolha 😎';
+      }
+    }
+
+    function responderSim() {
+      document.getElementById('respostaFinal').innerText = 'Você só poderia escolher SIM mesmo! HAHAHAHAHA 💜🌻';
+    }
+  </script>
+</body>
+</html>
+
